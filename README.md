@@ -2,9 +2,9 @@
 
 # Akshay Bengani
 
-**I build small, finished software for problems I actually have.**
+**I build agent systems for work, and small finished software for problems I actually have.**
 
-Mostly offline, mostly private, usually for one person I know by name.
+MCP servers and evaluation harnesses by day. Offline apps, mostly for one person I know by name, by night.
 
 [![Website](https://img.shields.io/badge/akshaybengani.com-0D47A1?style=flat-square)](https://akshaybengani.com/)
 [![X](https://img.shields.io/badge/@benganiakshay-0D47A1?style=flat-square)](https://x.com/benganiakshay)
@@ -14,11 +14,27 @@ Mostly offline, mostly private, usually for one person I know by name.
 
 ---
 
-## What I'm building
+## The day job: agent systems
 
-Seven apps shipped this year across three platforms. Each one started because something
-in my own life didn't have a tool, and every app I found solved a neighbouring problem
-instead of the real one.
+I work in implementation and technical enablement on an enterprise agent platform, which in
+practice means building the thing and then proving it works.
+
+**MCP servers in production.** Built and deployed servers that back a live alerting system,
+from scoping through deployment, QA, and handover. Along the way I found two protocol defects
+that had left both servers unusable by any compliant client, because the tests mocked the
+transport instead of speaking it.
+
+**Evaluation, not assertion.** A probe runner and two 43 case batteries, measuring detection
+rates across configurations. An agent that sounds right and an agent that is right are
+different claims, and only one of them survives a battery.
+
+**The unglamorous half.** Production escalations root caused and shipped, runbooks, QA reports,
+and the occasional load bearing claim withdrawn once I'd found I couldn't support it.
+
+## The night job: things I finished
+
+Each one started because something in my own life didn't have a tool, and every app I found
+solved a neighbouring problem instead of the real one.
 
 | Project | What it is | Built with |
 | :--- | :--- | :--- |
@@ -30,17 +46,22 @@ instead of the real one.
 | **[Replay](https://github.com/akshaybengani/ReplayAutomation)** | A macOS menu bar macro recorder. Do a task by hand once, and it does it again while you go elsewhere. | Swift · 116 tests |
 | **[Barge](https://github.com/akshaybengani/barge)** | A queue for file operations. Not a faster copier, a scheduler for copies that verifies what arrived matches what left before deleting an original. | Electron · TypeScript |
 
+Two more are still private while they settle: **SoundA2Z**, a Rust control plane for per-app
+volume and synchronized multi-room audio zones that an assistant can drive over MCP, and
+**MYOCA**, a bring-your-own-key Android chat agent with no backend and no login, where each
+agent is granted device capabilities one at a time.
+
 ## The thread running through them
 
 I keep arriving at the same four decisions, so they're worth stating once.
 
-**No network unless the problem needs one.** Six of the seven make zero network calls. That
-isn't a feature I added, it's a constraint I started from, and it removes accounts, sync
-conflicts, outages, and the entire question of what happens to somebody's data.
+**No network unless the problem needs one.** Most of these make zero network calls. That isn't
+a feature I added, it's a constraint I started from, and it removes accounts, sync conflicts,
+outages, and the entire question of what happens to somebody's data.
 
-**Derive state, never decrement it.** Medstock computes what's left from a snapshot plus
-what's happened since, rather than mutating a running total. A counter that drifts is
-impossible to audit. A derivation you can recompute is impossible to lose.
+**Derive state, never decrement it.** Medstock computes what's left from a snapshot plus what's
+happened since, rather than mutating a running total. A counter that drifts is impossible to
+audit. A derivation you can recompute is impossible to lose.
 
 **The README is part of the build.** Every project opens with the problem in plain language
 before it mentions a single feature, because a stranger gives you about one screen before
@@ -50,18 +71,13 @@ deciding.
 
 ## What I work in
 
-**Mobile** · Flutter and Dart, since 2019. Offline-first architecture, local persistence, on-device media, Play Store releases.
+**AI and agents** · MCP server development, agent evaluation and probe batteries, RAG with LangChain and FAISS, LangGraph, Google ADK, multi-agent orchestration. I work with Claude Code daily and build the tooling around it.
 
-**Desktop** · Swift and SwiftUI for macOS (menu bar apps, accessibility APIs, event tap recording, zero dependencies). Electron and TypeScript where it has to run on Windows too.
+**Mobile** · Flutter and Dart since 2019. Offline-first architecture, local persistence, on-device media, Play Store releases. Before that, a PCI-DSS compliant fintech platform for under-18s.
 
-**AI engineering** · Python for LLM tooling: RAG over documents, multi-model playgrounds, provider wrappers, MCP servers, and agent workflows. I work with Claude Code daily and build the tooling around it.
+**Desktop** · Swift and SwiftUI for macOS (menu bar apps, accessibility APIs, event tap recording, zero dependencies). Rust where it has to be fast, Electron where it has to run on Windows too.
 
 **Before all of that** · Java and Android, Swift and UIKit, Node, React, Go, and a long stretch of Python automation. Most of it is still public in this account, which is why you'll find about a hundred repos behind the seven above.
-
-## Currently
-
-Engineering at **Pratham Softwares**, based in India. Building AI tooling by day and finishing the
-list of small apps my family kept asking for by night.
 
 <div align="center">
 
