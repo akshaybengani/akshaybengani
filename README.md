@@ -2,9 +2,9 @@
 
 # Akshay Bengani
 
-**I build agent systems for work, and small finished software for problems I actually have.**
+**I build agent systems for work, and finish the software I need at home.**
 
-MCP servers and evaluation harnesses by day. Offline apps, mostly for one person I know by name, by night.
+MCP servers and evaluation harnesses by day. A Rust audio hub, an agent runtime, and a house's memory by night.
 
 [![Website](https://img.shields.io/badge/akshaybengani.com-0D47A1?style=flat-square)](https://akshaybengani.com/)
 [![X](https://img.shields.io/badge/@benganiakshay-0D47A1?style=flat-square)](https://x.com/benganiakshay)
@@ -14,15 +14,69 @@ MCP servers and evaluation harnesses by day. Offline apps, mostly for one person
 
 ---
 
+## What I'm building
+
+Three systems, all still private while they settle. They're the work I'd want read first.
+
+### SoundA2Z
+**A control plane for the audio you already own.** Per-app volume, sample-accurate multi-room
+zones, and one API an assistant can actually drive. Rust, 9 crates, 95,000 lines, 541 tests.
+
+The design problem is worth stating. Give a model a volume setter and it loops calls to fake a
+fade, which stutters, because a model round trip takes a second or two and an audio ramp needs
+a tick every 20 milliseconds. So every setter in the API takes a fade duration and there are no
+relative setters at all. Clients send intent; one ticker in the hub owns the clock and runs
+every in-flight ramp on an equal-power curve. An assistant can't get the timing wrong if it
+never holds the timing.
+
+A hub and agent split over gRPC, three OS audio backends (PipeWire, Core Audio through a Swift
+helper, WASAPI), a simulator crate so the hub is testable with no audio hardware present, and
+Snapcast supervised as a process and deliberately never linked, because synchronized group
+playback is patent-dense and that boundary is a licensing decision rather than a technical one.
+
+### MYOCA
+**Make your own chat agent.** A bring-your-own-key Android agent runtime with no backend and no
+login, where each agent is granted device capabilities one at a time. Flutter, 54,000 lines,
+461 tests, 11 feature modules.
+
+Three provider adapters, an MCP client, per-agent permission scoping, and secure credential
+storage. Keys, chats, and documents never leave the phone, which is a constraint the
+architecture has to earn rather than a promise in a privacy policy.
+
+### HomeBook
+**A memory of the house.** Search "drill", get back Park Street, ground floor, garage, tool
+cabinet, drawer 2. Flutter, 44,000 lines, 742 tests.
+
+Local-first with a shared identity layer: your account and who you share a house with live in
+Firebase, but what's actually in the house lives where you choose, which is our cloud, your own
+server, or this phone and nowhere else.
+
+## Built to solve one specific problem
+
+Smaller, each one a single irritation followed all the way to a finished app.
+
+| Project | The problem |
+| :--- | :--- |
+| **[Medstock](https://github.com/akshaybengani/Medstock)** | A thousand pills a month for three generations, and no way to know what's left or what to order. Not a pill reminder, a logistics ledger where stock is derived from a snapshot and never decremented. |
+| **[Barge](https://github.com/akshaybengani/barge)** | Copying four folders at once to a home NAS made all four crawl, and one would hang at 99%. A queue that runs one transfer at a time and verifies what arrived matches what left before deleting any original. |
+| **[Replay](https://github.com/akshaybengani/ReplayAutomation)** | GUI chores no API could reach. A macOS recorder that replays real clicks and keystrokes, built on the accessibility and event tap APIs, and readable and editable afterwards. |
+
+Also public, and smaller still: [Hisaab](https://github.com/akshaybengani/Hisaab) (an offline
+debt ledger), [Token Counter](https://github.com/akshaybengani/token-counter) (daily AI token
+spend as a desktop ring), [GitGlance](https://github.com/akshaybengani/gitglance) (a menu bar
+warning when a repo has work on the wrong branch), and
+[MyPlaces](https://github.com/akshaybengani/MyPlaces) (an offline field notebook for
+door-to-door visits).
+
 ## The day job: agent systems
 
 I work in implementation and technical enablement on an enterprise agent platform, which in
 practice means building the thing and then proving it works.
 
-**MCP servers in production.** Built and deployed servers that back a live alerting system,
-from scoping through deployment, QA, and handover. Along the way I found two protocol defects
-that had left both servers unusable by any compliant client, because the tests mocked the
-transport instead of speaking it.
+**MCP servers in production.** Built and deployed servers backing a live alerting system, from
+scoping through deployment, QA, and handover. Along the way I found two protocol defects that
+had left both servers unusable by any compliant client, because the tests mocked the transport
+instead of speaking it.
 
 **Evaluation, not assertion.** A probe runner and two 43 case batteries, measuring detection
 rates across configurations. An agent that sounds right and an agent that is right are
@@ -31,53 +85,15 @@ different claims, and only one of them survives a battery.
 **The unglamorous half.** Production escalations root caused and shipped, runbooks, QA reports,
 and the occasional load bearing claim withdrawn once I'd found I couldn't support it.
 
-## The night job: things I finished
-
-Each one started because something in my own life didn't have a tool, and every app I found
-solved a neighbouring problem instead of the real one.
-
-| Project | What it is | Built with |
-| :--- | :--- | :--- |
-| **[Hisaab](https://github.com/akshaybengani/Hisaab)** | A fully offline ledger for handing out things at cost and collecting the cash back. It isn't inventory, it tracks who owes you money and treats stock as a by-product. | Flutter · 416 tests |
-| **[Medstock](https://github.com/akshaybengani/Medstock)** | An offline stock book for a household's medicines. Not a pill reminder, a logistics ledger: what's left, when it runs out, and what to order to reach a given date. | Flutter |
-| **[MyPlaces](https://github.com/akshaybengani/MyPlaces)** | An offline field notebook for houses you visit on foot, for the half of the world whose address is a lane, a landmark, and a family name. | Flutter |
-| **[Token Counter](https://github.com/akshaybengani/token-counter)** | Today's token spend across Claude Code, Codex, Gemini CLI, and Cursor, as a ring against a daily target you set. Reads files those tools already wrote to disk. | Swift · macOS |
-| **[GitGlance](https://github.com/akshaybengani/gitglance)** | A menu bar dashboard for every git repo on your Mac. Not a git client, a guardrail: which repos have work sitting on a branch it should never have landed on. | Swift · macOS |
-| **[Replay](https://github.com/akshaybengani/ReplayAutomation)** | A macOS menu bar macro recorder. Do a task by hand once, and it does it again while you go elsewhere. | Swift · 116 tests |
-| **[Barge](https://github.com/akshaybengani/barge)** | A queue for file operations. Not a faster copier, a scheduler for copies that verifies what arrived matches what left before deleting an original. | Electron · TypeScript |
-
-Two more are still private while they settle: **SoundA2Z**, a Rust control plane for per-app
-volume and synchronized multi-room audio zones that an assistant can drive over MCP, and
-**MYOCA**, a bring-your-own-key Android chat agent with no backend and no login, where each
-agent is granted device capabilities one at a time.
-
-## The thread running through them
-
-I keep arriving at the same four decisions, so they're worth stating once.
-
-**No network unless the problem needs one.** Most of these make zero network calls. That isn't
-a feature I added, it's a constraint I started from, and it removes accounts, sync conflicts,
-outages, and the entire question of what happens to somebody's data.
-
-**Derive state, never decrement it.** Medstock computes what's left from a snapshot plus what's
-happened since, rather than mutating a running total. A counter that drifts is impossible to
-audit. A derivation you can recompute is impossible to lose.
-
-**The README is part of the build.** Every project opens with the problem in plain language
-before it mentions a single feature, because a stranger gives you about one screen before
-deciding.
-
-**Tests are the finish line, not the intention.** Counts on the badges are real and they run.
-
 ## What I work in
 
-**AI and agents** · MCP server development, agent evaluation and probe batteries, RAG with LangChain and FAISS, LangGraph, Google ADK, multi-agent orchestration. I work with Claude Code daily and build the tooling around it.
+**Systems** · Rust (distributed hub and agent over gRPC, real-time scheduling, cross-platform OS audio). Swift and SwiftUI for macOS, down to the accessibility and event tap APIs. Electron where it has to run on Windows too.
+
+**AI and agents** · MCP server development on both sides of the protocol, agent evaluation and probe batteries, RAG with LangChain and FAISS, LangGraph, Google ADK, multi-agent orchestration.
 
 **Mobile** · Flutter and Dart since 2019. Offline-first architecture, local persistence, on-device media, Play Store releases. Before that, a PCI-DSS compliant fintech platform for under-18s.
 
-**Desktop** · Swift and SwiftUI for macOS (menu bar apps, accessibility APIs, event tap recording, zero dependencies). Rust where it has to be fast, Electron where it has to run on Windows too.
-
-**Before all of that** · Java and Android, Swift and UIKit, Node, React, Go, and a long stretch of Python automation. Most of it is still public in this account, which is why you'll find about a hundred repos behind the seven above.
+**Before all of that** · Java and Android, Swift and UIKit, Node, React, Go, and a long stretch of Python automation. Most of it is still public in this account, which is why there are about a hundred repos behind the ones above.
 
 <div align="center">
 
