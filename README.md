@@ -65,12 +65,6 @@ list of small apps my family kept asking for by night.
 
 <div align="center">
 
-<br>
-
-<img src="https://github-readme-stats.vercel.app/api?username=akshaybengani&show_icons=true&hide_border=true&hide_title=true&include_all_commits=true&count_private=true&theme=transparent&hide_rank=false" height="150" alt="GitHub stats" />
-
-<br><br>
-
 Ideas, or a project you think I'd enjoy? **[akshaybengani@gmail.com](mailto:akshaybengani@gmail.com)**
 
 </div>
