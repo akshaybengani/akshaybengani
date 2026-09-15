@@ -96,11 +96,11 @@ and the occasional load bearing claim withdrawn once I'd found I couldn't suppor
 
 ## What I work in
 
-**Systems** · Rust (distributed hub and agent over gRPC, real-time scheduling, cross-platform OS audio). Swift and SwiftUI for macOS, down to the accessibility and event tap APIs. Electron where it has to run on Windows too.
+**Systems I've architected** · Rust (a distributed hub and agent over gRPC, real-time scheduling, three OS audio backends), Swift for macOS down to the accessibility and event tap APIs, Electron where it has to run on Windows too. I specify these, review every decision, and debug them when they break. The code is written with AI, which is the same discipline I apply professionally: ask me why the audio hub owns the clock rather than the client, not to recite Rust syntax.
 
 **AI and agents** · MCP server development on both sides of the protocol, agent evaluation and probe batteries, RAG with LangChain and FAISS, LangGraph, Google ADK, multi-agent orchestration.
 
-**Mobile** · Flutter and Dart since 2019. Offline-first architecture, local persistence, on-device media, Play Store releases. Before that, a PCI-DSS compliant fintech platform for under-18s.
+**Languages I work in daily** · Dart and Flutter since 2019, Python, TypeScript. Offline-first architecture, local persistence, on-device media, Play Store releases. Before that, a PCI-DSS compliant fintech platform for under-18s.
 
 **Infrastructure** · Proxmox and LXC, pfSense, Docker, Cloudflare Tunnel, Home Assistant, and currently Kubernetes. I run a homelab that everything above gets tested on first.
 
