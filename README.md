@@ -38,7 +38,7 @@ Seventeen containers on one mini PC, behind a firewall load balancing two ISPs.
 
 ### SoundA2Z
 **A control plane for the audio you already own.** Per-app volume, sample-accurate multi-room
-zones, and one API an assistant can actually drive. Rust, 9 crates, 95,000 lines, 541 tests.
+zones, and one API an assistant can actually drive. Rust, 9 crates, 112,000 lines, 689 tests.
 
 Give a model a volume setter and it loops calls to fake a fade, and it stutters, because a model
 round trip takes a second or two while an audio ramp needs a tick every 20 milliseconds. So every
@@ -52,13 +52,13 @@ linked, because that boundary is a licensing decision rather than a technical on
 
 ### MYOCA
 **Make your own chat agent.** A bring-your-own-key Android agent runtime with no backend and no
-login, where each agent is granted device capabilities one at a time. Flutter, 54,000 lines, 461
+login, where each agent is granted device capabilities one at a time. Flutter, 89,000 lines, 677
 tests, 11 feature modules. Keys, chats and documents never leave the phone, which is a constraint
 the architecture has to earn rather than a promise in a policy.
 
 ### HomeBook
 **A memory of the house.** Search "drill", get back Park Street, ground floor, garage, tool
-cabinet, drawer 2. Flutter, 44,000 lines, 742 tests. Accounts and sharing live in Firebase; what
+cabinet, drawer 2. Flutter, 83,000 lines, 1,295 tests. Accounts and sharing live in Firebase; what
 is actually in your house lives where you choose, which is a hosted tier, your own server, or the
 phone and nowhere else.
 
