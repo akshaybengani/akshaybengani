@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Akshay Bengani — Resume</title>
+<style>
+  :root{
+    --ink:#14181f; --muted:#5a6472; --rule:#d8dee7; --accent:#0D47A1; --bg:#fff;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:10mm 12mm; }
+  html,body{margin:0;padding:0;background:var(--bg);}
+  body{
+    font:9.5pt/1.3 -apple-system,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  h1{font-size:21pt;line-height:1.1;margin:0;letter-spacing:-.3px;font-weight:700;}
+  .role{font-size:10.6pt;color:var(--accent);font-weight:600;margin:3px 0 6px;}
+  .contact{font-size:9pt;color:var(--muted);}
+  .contact span{white-space:nowrap;}
+  header{border-bottom:2px solid var(--accent);padding-bottom:7px;margin-bottom:9px;}
+  h2{
+    font-size:8.6pt;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent);
+    font-weight:700;margin:11px 0 6px;padding-bottom:3px;break-after:avoid;border-bottom:1px solid var(--rule);
+  }
+  .summary{font-size:9.9pt;color:#27303d;margin:0;}
+  .job{margin-bottom:9px;}
+  .jobhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .jobtitle{font-weight:700;font-size:10.4pt;}
+  .jobdate{font-size:8.8pt;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .employer{font-size:9.3pt;color:var(--muted);font-style:italic;margin-bottom:3px;}
+  ul{margin:4px 0 0;padding-left:15px;}
+  li{margin-bottom:2px;}
+  li::marker{color:var(--accent);}
+  .sub{margin-left:0;padding-left:11px;border-left:2px solid var(--rule);margin-top:8px;break-inside:avoid;}
+  .skills{display:grid;grid-template-columns:120px 1fr;gap:3px 12px;font-size:9.4pt;}
+  .skills dt{font-weight:700;color:var(--ink);}
+  .skills dd{margin:0;color:#333c4a;}
+  .proj{display:grid;grid-template-columns:1fr;gap:2.5px;font-size:9.1pt;}
+  .proj p{margin:0;}
+  .proj b{color:var(--ink);}
+  .tag{color:var(--muted);font-size:8.8pt;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;}
+  .compact li{margin-bottom:1.5px;font-size:9.4pt;}
+  footer{margin-top:12px;padding-top:6px;border-top:1px solid var(--rule);font-size:8.4pt;color:var(--muted);text-align:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Akshay Bengani</h1>
+  <div class="role">AI Engineer · Agent Systems &amp; Technical Enablement</div>
+  <div class="contact">
+    <span>akshaybengani@gmail.com</span> &nbsp;·&nbsp;
+    <span><a href="https://akshaybengani.com">akshaybengani.com</a></span> &nbsp;·&nbsp;
+    <span><a href="https://github.com/akshaybengani">github.com/akshaybengani</a></span> &nbsp;·&nbsp;
+    <span>India</span> &nbsp;·&nbsp;
+    <span>6 years 9 months experience</span>
+  </div>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">
+I build and evaluate production agent systems. Over the last year that's meant MCP servers deployed
+to live customers, RAG pipelines, multi-agent orchestration, and the evaluation harnesses that prove
+any of it works. Behind that sit six years of shipping mobile and full-stack products, including a
+PCI-DSS compliant fintech platform for under-18s across the UAE and Saudi Arabia. I ship finished software on my own
+time: a 112,000 line Rust audio control plane, an on-device agent runtime, and a local-first
+household inventory, each with a real test suite behind it. I design and direct those builds and
+review every decision in them; the code is written with AI.
+</p>
+
+<h2>Core skills</h2>
+<dl class="skills">
+  <dt>AI &amp; agents</dt>
+  <dd>MCP server development (FastMCP), agent evaluation and probe batteries, RAG (LangChain, FAISS), LangGraph, Google ADK, multi-agent orchestration, prompt engineering, Claude Code</dd>
+  <dt>Languages</dt>
+  <dd>Dart, Python, TypeScript, JavaScript, Java</dd>
+  <dt>Architected</dt>
+  <dd>Rust, Swift, Electron, Go. Specified, reviewed and debugged by me; code written with AI.</dd>
+  <dt>Mobile</dt>
+  <dd>Flutter, React Native, BLoC and Cubit, offline-first architecture, PCI-DSS, Apple Wallet provisioning, native bridges</dd>
+  <dt>Backend &amp; data</dt>
+  <dd>FastAPI, PostgreSQL, Redis, Firebase and Firestore, BigQuery, REST, GraphQL</dd>
+  <dt>Platform</dt>
+  <dd>Docker, Proxmox and LXC, pfSense, Azure Container Apps and Registry, Google Cloud, Cloudflare Tunnel, Linux administration, Kubernetes (learning)</dd>
+  <dt>CI/CD</dt>
+  <dd>GitLab CI, GitHub Actions, Azure DevOps, Jenkins, Bitbucket Pipelines</dd>
+</dl>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="jobhead">
+    <span class="jobtitle">Pratham Softwares (PSI)</span>
+    <span class="jobdate">Jun 2025 - Present</span>
+  </div>
+
+  <div class="sub">
+    <div class="jobhead">
+      <span class="jobtitle">Implementation &amp; Technical Enablement, Mindset AI (client)</span>
+      <span class="jobdate">Jul 2026 - Present</span>
+    </div>
+    <div class="employer">Enterprise agent platform. Customer-facing delivery across 22 engagements.</div>
+    <ul>
+      <li>Built and deployed <b>two production MCP servers</b> powering a safeguarding alert system for a UK further-education provider, taking it from scoping through live deployment, QA, and customer handover.</li>
+      <li>Wrote a <b>probe runner and two 43-case evaluation batteries</b>, and measured detection rates across configurations to quantify agent behaviour rather than assert it.</li>
+      <li>Verified eleven live agent plans directly against Firestore; found and replaced wrong-region crisis helplines before any learner was exposed to them.</li>
+      <li>Diagnosed and fixed <b>two MCP protocol defects</b> that had left both servers unusable by any compliant client, having passed tests that mocked the transport.</li>
+      <li>Resolved two production escalations on the live Flutter platform, from root-cause analysis through merge request to production deployment.</li>
+      <li>Delivered an open-source contribution onboarding agent as a proof of concept, built, deployed, and submitted end to end.</li>
+      <li>Authored internal enablement tooling and skills, and wrote the workspace routing and architecture documentation for the agent-first platform rebuild.</li>
+    </ul>
+  </div>
+
+  <div class="sub">
+    <div class="jobhead">
+      <span class="jobtitle">Full Stack Sr. Developer, internal AI and SDLC</span>
+      <span class="jobdate">Jun 2025 - Jul 2026</span>
+    </div>
+    <div class="employer">Internal innovation: AI automation, developer tooling, full-stack delivery.</div>
+    <ul>
+      <li>Built <b>Aegis AI</b> (v3.3.9), a containerized agent running on GitLab CI/CD schedules that scans the issue tracker for labelled work, dispatches AI agents to analyse or fix it, and reports back as comments and merge requests. Added Anthropic and OpenHands provider support and the Docker packaging.</li>
+      <li>Built an <b>AI SDLC playbook and Claude Code plugin</b> for an internal .NET 8, EF Core, PostgreSQL, and React 18 portal, with six specialised subagents, slash commands, hooks, and a companion knowledge repository.</li>
+      <li>Authored <b>five agentic-AI workshops</b> for the engineering organisation, including a RAG support agent on LangChain and FAISS with configurable embedding and LLM providers.</li>
+      <li>Delivered full-stack applications (React, FastAPI, PostgreSQL) containerized to Azure Container Apps, and designed multi-stage CI/CD pipelines with error handling and automated reporting across five platforms.</li>
+      <li>Cleared Azure AI-900. Recognised as <b>Emerging Employee of the Year 2025</b>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="job">
+  <div class="jobhead">
+    <span class="jobtitle">Frontend Developer</span>
+    <span class="jobdate">Mar 2025 - May 2025</span>
+  </div>
+  <div class="employer">Social meetup platform: discover people, chat, pick a spot, navigate there.</div>
+  <ul class="compact">
+    <li>Built the Flutter app with real-time chat over WebSockets, Mapbox location tracking, and a gamified interaction layer, on a modular BLoC (Cubit) architecture with multi-language support.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="jobhead">
+    <span class="jobtitle">Sr. Mobile Application Developer</span>
+    <span class="jobdate">Sep 2021 - Dec 2024</span>
+  </div>
+  <div class="employer">FinTech for ages 8 to 18 across the UAE and Saudi Arabia.</div>
+  <ul class="compact">
+    <li>Led end-to-end Flutter development of a financial literacy platform for minors, building core financial features to <b>PCI-DSS compliance</b> with root and VPN detection.</li>
+    <li>Implemented Apple Wallet card provisioning, native bridges for third-party SDKs, gamified EdTech modules, multi-language UI, and analytics via Countly and CleverTap.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="jobhead">
+    <span class="jobtitle">Frontend Developer</span>
+    <span class="jobdate">Feb 2020 - Sep 2021</span>
+  </div>
+  <div class="employer">Community-based commerce platform for small businesses.</div>
+  <ul class="compact">
+    <li>Built invite-only community joining, shopping, and vendor chat in Flutter, with GraphQL and Firebase backend integration and in-app logic for supporting multiple communities.</li>
+  </ul>
+</div>
+
+<h2>Selected personal projects</h2>
+<div class="proj">
+  <p><b>Hermes, self-hosted AI infrastructure</b> <span class="tag">LiteLLM · MCP · Proxmox · pfSense</span> · A personal agent stack on my own hardware: a model gateway with five function-scoped virtual keys, fail-closed tool access enforced at registration rather than key level, and three MCP servers (one self-built) firewalled to accept the gateway only. Model routing split by data sensitivity, and prompts structured as a stable cached prefix to cut input spend. 17 LXC containers on one mini PC behind a dual-ISP failover firewall.</p>
+  <p><b>SoundA2Z</b> <span class="tag">Rust · 9 crates · 112k LOC · 689 tests · architected, AI-written</span> · A control plane for per-app volume and sample-accurate multi-room audio zones, driveable by an assistant over MCP. Hub and agent split over gRPC, three OS audio backends (PipeWire, Core Audio, WASAPI), and a simulator crate so the hub is testable without audio hardware. Every setter takes a fade duration so the hub owns the clock, because a model round trip is far too slow to drive a 20 millisecond audio ramp.</p>
+  <p><b>MYOCA</b> <span class="tag">Flutter · 89k LOC · 677 tests</span> · A bring-your-own-key Android agent runtime with no backend and no login, where each agent is granted device capabilities individually. Three provider adapters, an MCP client, per-agent permission scoping, and secure credential storage; keys and chats never leave the device.</p>
+  <p><b>HomeBook</b> <span class="tag">Flutter · 83k LOC · 1,295 tests</span> · A household inventory that answers "where is the drill" with a full location path. Local-first with a shared identity layer: accounts and sharing in Firebase, contents in your choice of hosted, self-hosted, or on-device storage.</p>
+  <p><b>Medstock</b> <span class="tag">Flutter</span> · Offline medicine logistics for a household: what is left, when it runs out, and how much to order to reach a date. Stock is derived from a snapshot rather than decremented, so it cannot drift.</p>
+  <p><b>Barge</b> <span class="tag">Electron · TypeScript</span> · A scheduler for file transfers that runs one at a time and verifies what arrived matches what left before deleting any original. macOS and Windows.</p>
+  <p><b>Replay</b> <span class="tag">Swift · 116 tests</span> · A macOS macro recorder that replays real clicks and keystrokes, built on the accessibility and event tap APIs.</p>
+  <p class="tag">Also public: Hisaab, Token Counter, GitGlance, and MyPlaces, four smaller offline tools in Flutter and Swift.</p>
+</div>
+
+<div class="two">
+  <div>
+    <h2>Education</h2>
+    <ul class="compact">
+      <li><b>MCA</b>, Jaipur National University, Rajasthan <span class="tag">2020 - 2022</span></li>
+      <li><b>BCA</b>, JECRC University, Jaipur <span class="tag">2016 - 2019</span></li>
+    </ul>
+    <h2>Achievements</h2>
+    <ul class="compact">
+      <li>Emerging Employee of the Year 2025, PSI</li>
+      <li>Adhack 5.0 Winner, Jul 2019</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Certifications &amp; training</h2>
+    <ul class="compact">
+      <li><b>AI-900</b>, Microsoft Azure AI Fundamentals</li>
+      <li>Azure AI Engineer Associate (AI-102), in progress</li>
+      <li>Full Stack AI Engineer</li>
+      <li>Google Prompting Essentials</li>
+      <li>CompTIA Security+</li>
+      <li>CISCO Networking Basics Specialization</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
